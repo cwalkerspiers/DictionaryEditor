@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "./styles.css";
-import storageService from "/src/Storage/service";
+import styled from "styled-components";
 import DictionarySelector from "./Components/DictionarySelector";
 import DictionaryEditor from "./Components/DictionaryEditor";
 import GridRow from "./Components/GridRow";
@@ -9,10 +8,10 @@ import Input from "./Components/Input";
 import Button from "./Components/Button";
 import SaveText from "./Components/SaveText";
 import storedDictionaries from "./data/dictionaries";
+import storageService from "/src/Storage/service";
 import useRows from "/src/Hooks/useRows";
 import validationHelper from "/src/Validation/helper";
 import blankRowHelper from "/src/BlankRow/helper";
-import styled from "styled-components";
 import styles from "/src/styles/constants";
 
 const StyledApp = styled.div`
@@ -20,32 +19,39 @@ const StyledApp = styled.div`
   justify-content: center;
   font-family: sans-serif;
 `;
+
 const AppContent = styled.div`
   width: 550px;
 `;
+
 const AppH1 = styled.h1`
   display: flex;
   color: ${styles.colors.primary};
 `;
+
 const IntroText = styled.div`
   display: flex;
   text-align: left;
   margin-bottom: 2rem;
   color: ${styles.colors.primary};
 `;
+
 const Divider = styled.hr`
   margin-top: 2rem;
   margin-bottom: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
 `;
+
 const NameInput = styled(Input)`
   font-size: 1rem;
   width: 100%;
 `;
+
 const defaultSelection = {
   name: "",
   data: [{ domain: "", range: "", validation: [] }]
 };
+
 const defaultSaveMessage = {
   status: "",
   message: ""
