@@ -4,7 +4,7 @@
 
 To demonstrate an ES6, custom hook and CSS-in-JS implementation of a dictionary editing application.
 
-To see this running please [open in Codesandbox]('https://codesandbox.io/s/github/cwalkerspiers/DictionaryEditor/')
+To see this running in the browser you can easily [open in a Codesandbox](https://codesandbox.io/s/github/cwalkerspiers/DictionaryEditor/).
 
 ## Technical Details
 
