@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import validationHelper from "/src/Validation/helper";
+import styles from "/src/styles/constants";
 
 const ValidationStrip = styled.span`
   display: flex;
@@ -9,7 +10,7 @@ const ValidationStrip = styled.span`
   color: white;
 `;
 const ValidationTextBlock = styled.span`
-  background-color: ${props => `rgba(221, 78, 65, ${props.backgroundOpacity})`};
+  background-color: ${props => styles.colors.red(props.backgroundOpacity)};
   box-sizing: border-box;
   display: flex;
   align-items: center;

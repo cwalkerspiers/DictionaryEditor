@@ -31,7 +31,7 @@ const generateBlankRow = columns => {
   newRow.validation = new Set();
   return newRow;
 };
-
+//
 const removeBlankRow = rows => {
   rows.pop();
   return rows;

@@ -1,11 +1,6 @@
 // todo checklist
 
-// get local storage service functional, make a hook for fetching dictionaries from it on app load
-// fix positioning of Add button
-// order the validation strip colours by severity
 // change if's in validatin helpers.
-// post to github
-// amend Readme.
 
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
@@ -16,9 +11,11 @@ import DictionaryEditor from "./Components/DictionaryEditor";
 import GridRow from "./Components/GridRow";
 import Input from "./Components/Input";
 import Button from "./Components/Button";
+import SaveText from "./Components/SaveText";
 import storedDictionaries from "./data/dictionaries";
 import useRows from "/src/Hooks/useRows";
 import validationHelper from "/src/Validation/helper";
+import blankRowHelper from "/src/BlankRow/helper";
 import styled from "styled-components";
 import styles from "/src/styles/constants";
 
@@ -45,10 +42,6 @@ const Divider = styled.hr`
   margin-bottom: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
 `;
-const SaveText = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-`;
 const NameInput = styled(Input)`
   font-size: 1rem;
   width: 100%;
@@ -57,13 +50,17 @@ const defaultSelection = {
   name: "",
   data: [{ domain: "", range: "", validation: [] }]
 };
+const defaultSaveMessage = {
+  status: "",
+  message: ""
+};
 
 function App() {
   let [dictionaries, setDictionaries] = useState(
     storageService.getDictionaries() || storedDictionaries
   );
   let [dictionary, setDictionary] = useState({});
-  let [saveMessage, setSaveMessage] = useState("");
+  let [saveMessage, setSaveMessage] = useState(defaultSaveMessage);
 
   const columns = Object.keys(defaultSelection.data[0]).map(column => {
     return {
@@ -73,10 +70,18 @@ function App() {
 
   const rowState = useRows([...defaultSelection.data], columns);
 
+  if (!blankRowHelper.doesBlankRowExistInRows(rowState.rows, columns)) {
+    const newRow = blankRowHelper.generateBlankRow(columns);
+    rowState.addRow(newRow);
+  }
+
   const setSuccessMessage = () => {
-    setSaveMessage("You have successfully saved your template.");
+    setSaveMessage({
+      status: "success",
+      message: "You have successfully saved your template."
+    });
     setTimeout(() => {
-      setSaveMessage("");
+      setSaveMessage(defaultSaveMessage);
     }, 3000);
   };
 
@@ -88,7 +93,7 @@ function App() {
     );
 
     if (validationText) {
-      setSaveMessage(validationText);
+      setSaveMessage({ status: "error", message: validationText });
       return;
     }
 
@@ -154,7 +159,7 @@ function App() {
         >
           Save
         </Button>
-        <SaveText>{saveMessage}</SaveText>
+        <SaveText status={saveMessage.status}>{saveMessage.message}</SaveText>
         <Button
           onClick={() => {
             localStorage.clear();

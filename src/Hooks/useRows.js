@@ -5,15 +5,16 @@ import validationHelper from "/src/Validation/helper";
 const useRows = (initialRows, columns) => {
   const [rows, setRows] = useState(initialRows);
 
-  const applyBlankRow = () => {
-    if (blankRowHelper.doesBlankRowExistInRows(rows, columns)) {
-      return;
-    }
-    const newRow = blankRowHelper.generateBlankRow(columns);
-    addRow(newRow);
-  };
+  // const applyBlankRow = () => {
+  //   if (blankRowHelper.doesBlankRowExistInRows(rows, columns)) {
+  //     return;
+  //   }
+  //   console.log("generating that blank in hook....");
+  //   const newRow = blankRowHelper.generateBlankRow(columns);
+  //   addRow(newRow);
+  // };
 
-  useEffect(applyBlankRow);
+  // useEffect(applyBlankRow);
 
   function applyValidation() {
     const newRows = validationHelper.applyValidation([...rows]);

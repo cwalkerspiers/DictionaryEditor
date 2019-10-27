@@ -42,7 +42,6 @@ const getValidationBlockerText = (rows, dictionary) => {
   if (!rows.length) {
     return "Please fill in at least one row to save this dictionary.";
   }
-  console.log("getValidationBlockerText dictionary", dictionary);
   if (!dictionary.name) {
     return "Please enter a name for your dictionary.";
   }

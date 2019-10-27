@@ -15,7 +15,6 @@ To see this running in the browser you can easily [open in a Codesandbox](https:
 
 ## Issues & Future Developments
 
-- fix render flashing caused by the useEffect logic in useRows. (this is noticable upon save)
 - provide further information to the user in regards to the links between rows that are causing failures during validation. (i.e. 'this row is forked with row 7');
 - create id's for dictionaries that are not dependant on no dictionaries being removed.
 - allow for the removal of dictionaries.

@@ -15,9 +15,6 @@ const getDictionaries = () => {
     return null;
   }
   const storedDictionaries = JSON.parse(localStorage.getItem("dictionaries"));
-
-  // convert validation to Set
-
   return storedDictionaries;
 };
 
