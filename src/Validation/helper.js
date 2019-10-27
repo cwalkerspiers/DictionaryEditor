@@ -157,7 +157,6 @@ const applyValidation = rows => {
   };
 
   comparePairs(keyValuePairs, (pair, pair2, indexOfComparisonPair) => {
-    // todo - changes these ifs to something more sophisticated
     if (isPairDuplicated(pair, pair2)) {
       validationIndexes["duplicate"].add(indexOfComparisonPair);
     }

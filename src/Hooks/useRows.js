@@ -1,44 +1,32 @@
-import { useState, useEffect } from "react";
-import blankRowHelper from "/src/BlankRow/helper";
+import { useState } from "react";
 import validationHelper from "/src/Validation/helper";
 
-const useRows = (initialRows, columns) => {
+const useRows = initialRows => {
   const [rows, setRows] = useState(initialRows);
 
-  // const applyBlankRow = () => {
-  //   if (blankRowHelper.doesBlankRowExistInRows(rows, columns)) {
-  //     return;
-  //   }
-  //   console.log("generating that blank in hook....");
-  //   const newRow = blankRowHelper.generateBlankRow(columns);
-  //   addRow(newRow);
-  // };
-
-  // useEffect(applyBlankRow);
-
-  function applyValidation() {
+  const applyValidation = () => {
     const newRows = validationHelper.applyValidation([...rows]);
     setRows(newRows);
     return newRows;
-  }
+  };
 
-  function changeValue(rowIndex, key, desiredValue) {
+  const changeValue = (rowIndex, key, desiredValue) => {
     const newRows = [...rows];
     newRows[rowIndex][key] = desiredValue;
     setRows(newRows);
-  }
+  };
 
-  function removeRow(rowIndex) {
+  const removeRow = rowIndex => {
     const newRows = [...rows];
     newRows.splice(rowIndex, 1);
     setRows(newRows);
-  }
+  };
 
-  function addRow(newRow) {
+  const addRow = newRow => {
     const newRows = [...rows];
     newRows.push(newRow);
     setRows(newRows);
-  }
+  };
 
   return {
     rows,

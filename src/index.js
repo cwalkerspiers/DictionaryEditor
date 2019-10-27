@@ -1,7 +1,3 @@
-// todo checklist
-
-// change if's in validatin helpers.
-
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";

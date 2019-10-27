@@ -6,20 +6,15 @@ const doesBlankRowExistInRows = (rows, columns) => {
   if (!areRowsValid(rows)) {
     return false;
   }
-
   let lastRow = rows[rows.length - 1];
-
   let allValuesBlank = true;
-
   for (let column of columns) {
     let columnValue = lastRow[column.id];
-    //
     if (columnValue && columnValue.length) {
       allValuesBlank = false;
       continue;
     }
   }
-
   return allValuesBlank;
 };
 
@@ -31,7 +26,7 @@ const generateBlankRow = columns => {
   newRow.validation = new Set();
   return newRow;
 };
-//
+
 const removeBlankRow = rows => {
   rows.pop();
   return rows;

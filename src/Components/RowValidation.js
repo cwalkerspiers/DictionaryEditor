@@ -9,12 +9,14 @@ const ValidationStrip = styled.span`
   margin-left: 1rem;
   color: white;
 `;
+
 const ValidationTextBlock = styled.span`
   background-color: ${props => styles.colors.red(props.backgroundOpacity)};
   box-sizing: border-box;
   display: flex;
   align-items: center;
 `;
+
 const ValidationText = styled.span`
   padding: 0.2rem;
   height: 100%;
@@ -31,10 +33,11 @@ const RowValidation = props => {
   if (!row.validation) {
     return null;
   }
+
   if (row.validation.size === 0) {
     return null;
   }
-  //
+
   row = validationHelper.sortValidationOfRowByPriority(row);
   const validationTypes = [...row.validation];
 

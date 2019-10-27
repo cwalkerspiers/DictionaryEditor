@@ -10,7 +10,6 @@ const StyledButton = styled.button`
   margin: 0;
   align-items: center;
   color: grey;
-  /* color: darkred; */
   cursor: pointer;
 `;
 

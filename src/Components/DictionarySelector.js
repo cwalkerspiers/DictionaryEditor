@@ -2,7 +2,6 @@ import React from "react";
 import Select from "./Select";
 import GridRow from "./GridRow";
 import Button from "./Button";
-
 import styled from "styled-components";
 
 const AddButton = styled(Button)`
