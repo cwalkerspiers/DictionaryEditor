@@ -15,7 +15,8 @@ To see this running in the browser you can open this project in a [Codesandbox](
 
 ## Issues & Future Developments
 
-- provide further information to the user in regards to the links between rows that are causing failures during validation. (i.e. 'this row is forked with row 7');
-- create id's for dictionaries that are not dependant on no dictionaries being removed.
+- provide further information to the user in regards to the links between rows that are causing failures during validation. (i.e. 'this row is forked with row 7')
+- improve on the UX for selecting or adding a new dictionary (this could be separated into a separate view).
+- change the logic responsible for creating ids for dictionaries to be not dependant on dictionaries not being removed.
 - allow for the removal of dictionaries.
-- improve validation UX - highlight problem areas (e.g. highlight the name field if the user hasn't entered a name on save)
+- improve validation UX - highlight problem areas (e.g. highlight the name field if the user hasn't entered a name on save).
