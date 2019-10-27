@@ -6,8 +6,6 @@ To demonstrate an ES6, custom hook and CSS-in-JS implementation of a dictionary 
 
 To see this running in the browser you can easily [open in a Codesandbox](https://codesandbox.io/s/github/cwalkerspiers/DictionaryEditor/).
 
-https://codesandbox.io/embed/dictionaryeditor-q9ghj?fontsize=14
-
 ## Technical Details
 
 - ES6
