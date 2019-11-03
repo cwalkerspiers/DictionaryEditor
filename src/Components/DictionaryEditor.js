@@ -55,7 +55,7 @@ const DictionaryEditor = props => {
       {renderRows(
         rows,
         (row, rowIndex, changeDomain, changeRange, removeRow) => (
-          <Row key={row.index}>
+          <Row key={rowIndex}>
             <Column>
               <Input value={row.domain} onChange={changeDomain} />
             </Column>
